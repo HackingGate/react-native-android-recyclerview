@@ -7,10 +7,12 @@ buildscript {
 
     dependencies {
         classpath("com.android.tools.build:gradle:3.4.2")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.31")
     }
 }
 
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 28
@@ -38,4 +40,3 @@ dependencies {
     implementation 'com.facebook.react:react-native:+'
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
 }
-  
