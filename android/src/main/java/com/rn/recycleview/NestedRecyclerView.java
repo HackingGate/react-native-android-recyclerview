@@ -15,6 +15,7 @@ public class NestedRecyclerView extends RecyclerView implements NestedScrollingP
    private boolean nestedScrollTargetWasUnableToScroll;
    private boolean skipsTouchInterception;
 
+   @Override
    public boolean dispatchTouchEvent(MotionEvent ev) {
       boolean temporarilySkipsInterception = this.nestedScrollTarget != null;
       if (temporarilySkipsInterception) {
@@ -32,10 +33,12 @@ public class NestedRecyclerView extends RecyclerView implements NestedScrollingP
       return handled;
    }
 
+   @Override
    public boolean onInterceptTouchEvent(MotionEvent e) {
       return !this.skipsTouchInterception && super.onInterceptTouchEvent(e);
    }
 
+   @Override
    public void onNestedScroll(View target, int dxConsumed, int dyConsumed, int dxUnconsumed, int dyUnconsumed) {
       if (target == this.nestedScrollTarget && !this.nestedScrollTargetIsBeingDragged) {
          if (dyConsumed != 0) {
@@ -52,6 +55,7 @@ public class NestedRecyclerView extends RecyclerView implements NestedScrollingP
 
    }
 
+   @Override
    public void onNestedScrollAccepted(View child, View target, int axes) {
       if ((axes & 2) != 0) {
          this.nestedScrollTarget = target;
@@ -62,10 +66,12 @@ public class NestedRecyclerView extends RecyclerView implements NestedScrollingP
       super.onNestedScrollAccepted(child, target, axes);
    }
 
+   @Override
    public boolean onStartNestedScroll(View child, View target, int nestedScrollAxes) {
       return (nestedScrollAxes & 2) != 0;
    }
 
+   @Override
    public void onStopNestedScroll(View child) {
       this.nestedScrollTarget = (View)null;
       this.nestedScrollTargetIsBeingDragged = false;
