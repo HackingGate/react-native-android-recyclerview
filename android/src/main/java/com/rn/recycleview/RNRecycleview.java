@@ -1,5 +1,5 @@
+// Fork form https://github.com/Widgetlabs/expedition-nestedscrollview/blob/master/app/src/main/java/com/github/fluidsonic/nestedrecyclerview/NestedRecyclerView.kt
 package com.rn.recycleview;
-
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -33,7 +33,7 @@ import com.facebook.react.views.scroll.ScrollEventType;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RNRecycleview extends RecyclerView {
+public class RNRecycleview extends NestedRecyclerView {
 
     private final OnScrollDispatchHelper mOnScrollDispatchHelper = new OnScrollDispatchHelper();
 
